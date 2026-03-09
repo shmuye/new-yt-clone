@@ -1,73 +1,127 @@
-# React + TypeScript + Vite
+## YouTube Clone (React + TypeScript + Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Modern YouTube UI clone built with **React**, **TypeScript**, and **Vite**, using the official **YouTube Data API v3**.  
+It supports browsing popular videos, searching, watching videos with details, viewing channel info, playlists, and comments – with a responsive layout similar to YouTube.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
 
-## React Compiler
+- **Frontend**: React 18, TypeScript
+- **Bundler/Dev Server**: Vite
+- **Routing**: `react-router-dom`
+- **HTTP Client**: `axios`
+- **UI Helpers**: `react-icons`, `react-infinite-scroll-component`
+- **Linting**: ESLint (TypeScript + React)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Home feed**
+  - Most popular videos fetched from the YouTube Data API
+  - Category-based filtering via sidebar
+  - Infinite scroll to load more videos
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Search**
+  - Search bar in the navbar
+  - Trigger search via **Enter key** or **search icon**
+  - Search results show enriched video cards with channel details
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **Watch page**
+  - Embedded YouTube player
+  - Video details (title, channel info, stats)
+  - Related/activities list on the right
+  - Comments section (responsive layout: side/below)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- **Channel & playlists**
+  - Channel information and statistics
+  - Channel activities and videos
+  - Playlists and playlist items listing
+
+- **Responsive UI**
+  - Mobile, tablet, and desktop layouts
+  - Sticky navbar and scrollable content sections
+
+---
+
+## Getting Started
+
+### 1. Prerequisites
+
+- **Node.js** ≥ 18 recommended
+- **npm** (comes with Node)
+- A **YouTube Data API v3** key (from Google Cloud Console)
+
+### 2. Clone the repository
+
+```bash
+git clone <your-repo-url>
+cd yt-clone
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 3. Install dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
+
+### 4. Configure environment variables
+
+Create a `.env` file in the project root (same level as `package.json`) and add your YouTube API key:
+
+```bash
+VITE_API_KEY=YOUR_YOUTUBE_DATA_API_KEY
+```
+
+This is read in `src/utils/api.ts` via `import.meta.env.VITE_API_KEY`.
+
+### 5. Run the development server
+
+```bash
+npm run dev
+```
+
+By default, Vite will print a local development URL (typically `http://localhost:5173`). Open it in your browser to view the app.
+
+---
+
+## Available Scripts
+
+- **`npm run dev`**  
+  Starts the Vite dev server with hot module replacement.
+
+- **`npm run build`**  
+  Type-checks the project and builds an optimized production bundle.
+
+- **`npm run preview`**  
+  Serves the production build locally for testing.
+
+- **`npm run lint`**  
+  Runs ESLint over the project.
+
+---
+
+## Project Structure (High-Level)
+
+- **`src/main.tsx`**: App bootstrap and router setup.
+- **`src/App.tsx`**: Main layout, routes, and shared components.
+- **`src/Components/`**: Reusable UI components (navbar, cards, sidebar, comments, etc.).
+- **`src/Pages/`**: Route-level pages (`Home`, `Search`, `Watch`, `Channel`, `Playlist`).
+- **`src/Hooks/`**: Custom hooks for data fetching and state management (e.g. `useHome`, `useChannel`).
+- **`src/utils/`**: API functions, parsers, and shared types.
+
+---
+
+## API Usage Notes
+
+All API calls are made directly to:
+
+- `https://www.googleapis.com/youtube/v3/...`
+
+using the `VITE_API_KEY` value. Be mindful of:
+
+
+
+
+
