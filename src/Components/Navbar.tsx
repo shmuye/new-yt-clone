@@ -7,15 +7,18 @@ import { AiOutlineClose } from "react-icons/ai";
 const Navbar = ({ search, setSearch }: { search: string, setSearch: (q: string) => void }) => {
     const navigate = useNavigate()
 
+    const handleSearch = () => {
+        if (search.trim()) {
+            navigate(`/search?query=${search}`)
+        } else {
+            navigate(`/`)
+        }
+    }
 
     const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key == "Enter") {
             e.preventDefault()
-            if (search.trim()) {
-                navigate(`/search?query=${search}`)
-            } else {
-                navigate(`/`)
-            }
+            handleSearch()
         }
     }
 
@@ -51,7 +54,8 @@ const Navbar = ({ search, setSearch }: { search: string, setSearch: (q: string) 
                                     className={`sm:text-lg text-md cursor-pointer text-neutral-400 ${!search ? `invisible` : "visible"}`} />
                             </div>
                             <button
-
+                                type="button"
+                                onClick={handleSearch}
                                 className="w-16 flex items-center justify-center border-l-[1px] border-neutral-700">
                                 <CiSearch className="sm:text-2xl text-xl text-neutral-200" />
                             </button>
