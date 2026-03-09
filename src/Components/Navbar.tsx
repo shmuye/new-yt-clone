@@ -4,7 +4,7 @@ import { BsYoutube } from "react-icons/bs";
 import { CiSearch } from "react-icons/ci";
 import { AiOutlineClose } from "react-icons/ai";
 
-function Navbar({ search, setSearch }: { search: string, setSearch: (q: string) => void }) {
+const Navbar = ({ search, setSearch }: { search: string, setSearch: (q: string) => void }) => {
     const navigate = useNavigate()
 
 

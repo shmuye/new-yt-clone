@@ -1,7 +1,7 @@
 import type { HomeVideoCardType } from '../utils/Types'
 import { Link } from 'react-router-dom'
 
-function ChannelVideoCard({ item }: { item: HomeVideoCardType }) {
+const ChannelVideoCard = ({ item }: { item: HomeVideoCardType }) => {
     return (
         <Link to={`/watch/${item.videoId}/${item.channelInfo.id}`}>
             <div className='col flex flex-col hover:scale-[101%] duration-200 ease-in-out'>

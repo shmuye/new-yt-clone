@@ -2,7 +2,7 @@
 import type { ChannelPlaylistsType } from '../utils/Types'
 import ChannelPlaylistCard from './ChannelPlaylistCard'
 
-function ChannelPlaylist({ channelId, channelPlayLists }: { channelId: string, channelPlayLists: ChannelPlaylistsType[] }) {
+const ChannelPlaylist = ({ channelId, channelPlayLists }: { channelId: string, channelPlayLists: ChannelPlaylistsType[] }) => {
     return (
         <div className="row row-cols-lg-4 row-cols-md-3 row-cols-2 gap-y-4">
             {

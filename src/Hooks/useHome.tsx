@@ -1,10 +1,7 @@
 import { useState } from "react"
-import { HomeVideoCardType } from "../utils/Types"
-import axios from "axios"
-import { fetchVideosWithChannels } from "../utils/videoDetailsHelper"
+import type { HomeVideoCardType } from "../utils/Types"
 import { getHomeVideos } from "../utils/api"
-
-const API_KEY = import.meta.env.VITE_API_KEY
+import { fetchVideosWithChannels } from "../utils/videoDetailsHelper"
 
 export const useHome = () => {
 

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import type { HomeVideoCardType } from '../utils/Types'
 
-function Card({ data }: { data: HomeVideoCardType }) {
+const Card = ({ data }: { data: HomeVideoCardType }) => {
     return (
         <div className='flex flex-col gap-3 pb-3 hover:scale-[101%] duration-200 ease-in-out'>
             {/* Thumbnail */}

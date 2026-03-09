@@ -16,11 +16,11 @@ import { useEffect } from "react";
 const API_KEY = import.meta.env.VITE_API_KEY
 
 
-function Sidebar({ filter, setFilter, setCategoryId }: {
+const Sidebar = ({ filter, setFilter, setCategoryId }: {
     filter: string
     setFilter: (filter: string) => void
     setCategoryId: (categoryId: string | null) => void
-}) {
+}) => {
     const navigate = useNavigate()
 
     const [categoriesData, setCategoriesData] = useState<any[]>([])

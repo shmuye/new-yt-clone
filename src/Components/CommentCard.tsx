@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react'
 import type { CommentBodyType } from '../utils/Types'
-import CommentBody from './CommentBody'
 import { getCommetReplies } from '../utils/api'
 import { parseReplies } from '../utils/parseData'
+import CommentBody from './CommentBody'
 
-const API_KEY = import.meta.env.VITE_API_KEY
-
-function CommentCard({ comment }: { comment: CommentBodyType }) {
+const CommentCard = ({ comment }: { comment: CommentBodyType }) => {
 
     const [replies, setReplies] = useState<CommentBodyType[]>([])
 

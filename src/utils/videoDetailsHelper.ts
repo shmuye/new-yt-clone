@@ -2,8 +2,6 @@ import type { HomeVideoCardType } from "./Types"
 import { getChannelInfo } from "./api"
 import { parseVideos } from "./parseData"
 
-const API_KEY = import.meta.env.VITE_API_KEY
-
 export const fetchVideosWithChannels = async (items: any[]) => {
     const videoData = parseVideos(items)
 

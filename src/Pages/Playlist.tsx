@@ -1,14 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { getPlaylistInfo, getPlaylistVideos } from '../utils/api'
-import { PlaylistInfoType, PlaylistVideotype } from '../utils/Types'
 import { AiOutlineClose } from "react-icons/ai";
-import { usePlaylistInfo } from '../Hooks/usePlaylistInfo';
-import { FaList } from "react-icons/fa";
 import { usePlaylistItems } from '../Hooks/usePlaylistItems';
-import PlaylistItems from '../Components/PlaylistItems';
+import { usePlaylistInfo } from '../Hooks/usePlaylisInfo';
+import PlaylistItems from '../Components/PlayListItem';
 
-function Playlist() {
+
+const Playlist = () => {
     const { channelId, playlistId } = useParams()
     const { playListInfo, showDesc, setShowDesc, fetchPlaylistInfo } = usePlaylistInfo()
     const { playlistItems, fetchPlaylistVideos } = usePlaylistItems()
