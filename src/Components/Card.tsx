@@ -1,6 +1,5 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
-import { HomeVideoCardType } from '../utils/Types'
+import type { HomeVideoCardType } from '../utils/Types'
 
 function Card({ data }: { data: HomeVideoCardType }) {
     return (
