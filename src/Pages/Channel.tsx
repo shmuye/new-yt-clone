@@ -15,7 +15,7 @@ const Channel = () => {
     const [showDesc, setShowDesc] = useState(false)
 
     const fetchMoreChanneldata = () => {
-        fetchChanneldata(channelId!, channelVideoList!.nextPageToken!)
+        fetchChanneldata(channelId!)
     }
 
     useEffect(() => {

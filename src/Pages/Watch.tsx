@@ -79,7 +79,7 @@ const Watch = () => {
                     </div>
                 </div>
                 <div className="col-xl-4 col-lg-5 flex flex-col gap-3 lg:mt-0 mt-3">{
-                    activities?.map((item, ind) =>
+                    activities?.map((item) =>
                         <MiniCard key={item.videoId} item={item} />
                     )
                 }</div>
