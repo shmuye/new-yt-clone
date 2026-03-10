@@ -10,18 +10,26 @@ interface CommentState {
 }
 
 const Comments = ({ videoId }: { videoId?: string }) => {
-    const [commentList, setCommentList] = useState<CommentState>({ comments: [], nextPageToken: null })
+
+    const [commentList, setCommentList] = useState<CommentState>({
+        comments: [],
+        nextPageToken: null
+    })
 
     const fetchComments = async () => {
         try {
-            const commentsResponse = await getVideoComments(videoId!, commentList!.nextPageToken!)
-            
+
+            const commentsResponse = await getVideoComments(
+                videoId!,
+                commentList.nextPageToken!
+            )
+
             const items = commentsResponse.items
 
-            const commetsData = parseComments(items)
+            const commentsData = parseComments(items)
 
             setCommentList(prev => ({
-                comments: [...prev.comments, ...commetsData],
+                comments: [...prev.comments, ...commentsData],
                 nextPageToken: commentsResponse.nextPageToken
             }))
 
@@ -38,16 +46,24 @@ const Comments = ({ videoId }: { videoId?: string }) => {
 
 
     return (
-        <div className='mt-3 flex flex-col gap-2'>
-            <h1 className='md:text-2xl sm:text-xl text-lg font-semibold px-4'>Comments</h1>
+        <div className="mt-3 flex flex-col gap-4">
+
+            <h1 className="md:text-xl sm:text-lg text-base font-semibold px-4">
+                Comments
+            </h1>
+
             {
-                commentList?.comments?.map((comment: any, ind) =>
-                    <CommentCard key={ind} comment={comment} />
+                commentList?.comments?.map((comment: CommentBodyType) =>
+                    <CommentCard key={comment.commentId} comment={comment} />
                 )
             }
-            <button className='text-gray-400 hover:underline'
+
+            <button
+                className="text-neutral-400 hover:underline px-4"
                 onClick={() => fetchComments()}
-            >Show more...</button>
+            >
+                Show more...
+            </button>
 
         </div>
     )

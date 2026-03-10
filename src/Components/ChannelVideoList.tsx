@@ -4,7 +4,7 @@ import type { HomeVideoCardType } from '../utils/Types'
 
 const  ChannelVideoList = ({ channelVideos }: { channelVideos?: HomeVideoCardType[] }) => {
     return (
-        <div className="row row-cols-lg-4 row-cols-md-3 row-cols-2 gap-y-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {channelVideos &&
                 channelVideos.map((item: HomeVideoCardType, ind) =>
                     <ChannelVideoCard key={ind} item={item} />

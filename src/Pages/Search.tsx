@@ -43,10 +43,10 @@ const Search = ({ setSearch }: { setSearch: (q: string) => void }) => {
 
 
     return (
-        <div className='row row-cols-md-3 row-cols-sm-2 row-cols-1 w-[95%] mx-auto md:mt-6 mt-4'>
+        <div className="w-[95%] mx-auto md:mt-6 mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {
                 searchList?.map((item: HomeVideoCardType) =>
-                    <Card data={item} />
+                    <Card key={item.videoId} data={item} />
                 )
             }
         </div>

@@ -10,26 +10,19 @@ import MiniCard from '../Components/MiniCard'
 const Watch = () => {
     const { videoId, channelId } = useParams()
     const [activities, setActivities] = useState<HomeVideoCardType[]>()
-
     const [details, setDetails] = useState<HomeVideoCardType>()
 
     const fetchDetails = async () => {
         try {
             const res = await getVideoDetails(videoId!)
-
             const videoDetails = await fetchVideosWithChannels(res)
-
             setDetails(videoDetails[0])
-        } catch (error) {
-
-        }
-
+        } catch (error) {}
     }
 
     const fetchActivities = async () => {
         try {
             const response = await getActivities(channelId!)
-
             const videoIds: string[] = []
 
             response.items.forEach(
@@ -42,18 +35,13 @@ const Watch = () => {
                     if (item.contentDetails.upload) {
                         videoIds.push(item.contentDetails.upload.videoId)
                     }
-                   
                 }
             )
 
             const vidResponse = await getActvitiesVideos(videoIds!)
-
             const videosArray = await fetchVideosWithChannels(vidResponse.items)
             setActivities(videosArray)
-
-        } catch (error) {
-
-        }
+        } catch (error) {}
     }
 
     useEffect(() => {
@@ -62,30 +50,41 @@ const Watch = () => {
     }, [videoId, channelId])
 
     return (
-        <div className='w-[95%] mx-auto mt-6 mb-12'>
-            <div className="row">
-                <div className="col-xl-8 col-lg-7">
+        <div className="w-[95%] mx-auto mt-6 mb-12 overflow-x-hidden">
+
+            <div className="flex flex-col lg:flex-row gap-4">
+
+                {/* Main video and comments */}
+                <div className="lg:flex-1 lg:min-w-0">
+
                     <iframe
-                        className="w-full aspect-[16/9] bg-neutral-900"
+                        className="w-full aspect-video bg-neutral-900 rounded-md"
                         src={`https://www.youtube.com/embed/${details?.videoId}?autoplay=1`}
-                        title='Youtube video player'
-                        allow='autoplay; picture-inpicture;'
+                        title="YouTube video player"
+                        allow="autoplay; picture-in-picture;"
                         allowFullScreen
-                    >
-                    </iframe>
+                    ></iframe>
+
                     <VideoDetails details={details} />
-                    <div className="lg:block hidden">
+
+                    {/* Desktop comments */}
+                    <div className="lg:block hidden mt-4">
                         <Comments videoId={details?.videoId} />
                     </div>
                 </div>
-                <div className="col-xl-4 col-lg-5 flex flex-col gap-3 lg:mt-0 mt-3">{
-                    activities?.map((item) =>
+
+                {/* Recommended videos */}
+                <div className="lg:w-[420px] lg:shrink-0 flex flex-col gap-3 lg:mt-0 mt-3">
+                    {activities?.map((item) => (
                         <MiniCard key={item.videoId} item={item} />
-                    )
-                }</div>
-                <div className="block lg:hidden">
+                    ))}
+                </div>
+
+                {/* Mobile comments */}
+                <div className="block lg:hidden mt-3">
                     <Comments videoId={details?.videoId} />
                 </div>
+
             </div>
         </div>
     )

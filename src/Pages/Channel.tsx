@@ -27,13 +27,13 @@ const Channel = () => {
         <div className="relative mb-12">
             {/* modal */}
             {showDesc && channelInfo?.description &&
-                <div className="z-[10] absolute overflow-hidden bg-neutral-800 rounded-xl left-1/2 top-14 transform -translate-x-1/2">
+                <div className="z-[10] fixed inset-0 bg-black/60 flex items-start justify-center pt-16 px-4">
 
-                    <div className="flex flex-col gap-2 items-end w-[600px] max-h-[500px] p-8 overflow-y-auto">
-                        <div className="">
+                    <div className="relative flex flex-col gap-2 items-end w-full max-w-[640px] max-h-[80vh] bg-neutral-800 rounded-xl p-5 sm:p-8 overflow-y-auto">
+                        <div>
                             <AiOutlineClose
                                 onClick={() => setShowDesc(false)}
-                                className='text-2xl text-neutral-200' />
+                                className='text-2xl text-neutral-200 cursor-pointer' />
                         </div>
                         <p className='text-lg whitespace-pre-line'>{channelInfo?.description}</p>
                     </div>
@@ -48,22 +48,26 @@ const Channel = () => {
                 loader={<Loading />}
             >
                 <div className='w-[95%] mx-auto md:mt-8 mt-6'>
-                    <div className="row row-cols-2">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
                         {/* image */}
-                        <div className="col-4">
-                            <img src={channelInfo?.thumbnail} className="md:w-52 sm:w-40 w-36 aspect-[1/1] object-cover rounded-full mx-auto" alt="" />
+                        <div className="sm:shrink-0 flex justify-center sm:justify-start">
+                            <img
+                                src={channelInfo?.thumbnail}
+                                className="md:w-52 sm:w-40 w-32 aspect-[1/1] object-cover rounded-full"
+                                alt=""
+                            />
                         </div>
                         {/*details */}
-                        <div className="col-8">
+                        <div className="min-w-0">
                             <h1 className='md:text-4xl sm:text-3xl text-2xl font-semibold'>{channelInfo?.title}</h1>
-                            <div className="sm:flex gap-4 sm:text-lg text-md text-neutral-400 mt-2">
+                            <div className="flex flex-wrap gap-x-4 gap-y-1 sm:text-lg text-base text-neutral-400 mt-2">
                                 <h2>{channelInfo?.customUrl}</h2>
                                 <h2>{channelInfo?.subCount} Subscribers</h2>
                                 <h2>{channelInfo?.videoCount} Vidoes</h2>
                             </div>
                             {channelInfo?.description &&
                                 <div className="">
-                                    <p className='w-[600px] line-clamp-3 text-neutral-400 whitespace-pre-line'>{channelInfo?.description}</p>
+                                    <p className='max-w-[640px] line-clamp-3 text-neutral-400 whitespace-pre-line'>{channelInfo?.description}</p>
                                     <button
                                         onClick={() => setShowDesc(true)}
                                         className='font-semibold'>more</button>

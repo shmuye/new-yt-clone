@@ -3,7 +3,7 @@ import PlaylistItemCard from './PlaylistItemCard'
 
 const PlaylistItems = ({ videos, channelId }: { videos: PlaylistVideotype[], channelId: string }) => {
     return (
-        <div className="row row-cols-md-4 row-cols-sm-3 row-cols-2 gap-y-4 mt-4">
+        <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
             {
                 videos.map((item: PlaylistVideotype, ind) =>
                     <PlaylistItemCard key={item.id} item={item} ind={ind} channelId={channelId} />

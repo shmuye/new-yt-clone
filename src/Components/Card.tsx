@@ -19,8 +19,8 @@ const Card = ({ data }: { data: HomeVideoCardType }) => {
                         alt="" className="bg-gray-300 rounded-full object-cover hover:scale-[108%] duration-200 ease-in-out" />
                 </Link>
                 <div className="flex flex-col">
-                    <h3 className='sm:text-lg text-md line-clamp-2'>{data.videoTitle}</h3>
-                    <div className="sm:text-md text-sm">
+                    <h3 className='text-sm line-clamp-2'>{data.videoTitle}</h3>
+                    <div className="sm:text-base text-sm">
                         <h4>{data.channelInfo.name}</h4>
                         <div className="flex gap-1">
                             <span>{data.videoViews}</span>

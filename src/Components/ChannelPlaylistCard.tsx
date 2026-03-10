@@ -12,11 +12,11 @@ const ChannelPlaylistCard = ({ item, channelId }: { item: ChannelPlaylistsType, 
                         < FaList />
                         <h3>{item.videoCount} videos</h3>
                     </div>
-                    <img src={item.thumbnail} className="bg-bg-neutral-900 object-cover aspect-[16/9] rounded" alt="" />
+                    <img src={item.thumbnail} className="bg-neutral-900 object-cover aspect-[16/9] rounded" alt="" />
                 </div>
                 {/* title */}
                 <div className="flex flex-col gap-1 mt-1">
-                    <h1 className='sm:text-md text-sm line-clamp-1'>{item.title}</h1>
+                    <h1 className='sm:text-base text-sm line-clamp-1'>{item.title}</h1>
                 </div>
             </div >
         </Link>
