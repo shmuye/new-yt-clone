@@ -7,7 +7,7 @@ It supports browsing popular videos, searching, watching videos with details, vi
 
 ## Tech Stack
 
-- **Frontend**: React 18, TypeScript
+- **Frontend**: React, TypeScript
 - **Bundler/Dev Server**: Vite
 - **Routing**: `react-router-dom`
 - **HTTP Client**: `axios`
