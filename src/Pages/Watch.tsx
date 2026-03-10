@@ -54,7 +54,7 @@ const Watch = () => {
 
             <div className="flex flex-col lg:flex-row gap-4">
 
-                {/* Main video and comments */}
+               
                 <div className="lg:flex-1 lg:min-w-0">
 
                     <iframe
@@ -67,20 +67,20 @@ const Watch = () => {
 
                     <VideoDetails details={details} />
 
-                    {/* Desktop comments */}
+                   
                     <div className="lg:block hidden mt-4">
                         <Comments videoId={details?.videoId} />
                     </div>
                 </div>
 
-                {/* Recommended videos */}
-                <div className="lg:w-[420px] lg:shrink-0 flex flex-col gap-3 lg:mt-0 mt-3">
+               
+                <div className="lg:w-105 lg:shrink-0 flex flex-col gap-3 lg:mt-0 mt-3">
                     {activities?.map((item) => (
                         <MiniCard key={item.videoId} item={item} />
                     ))}
                 </div>
 
-                {/* Mobile comments */}
+              
                 <div className="block lg:hidden mt-3">
                     <Comments videoId={details?.videoId} />
                 </div>

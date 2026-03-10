@@ -5,14 +5,14 @@ const CommentBody = ({ item }: { item: CommentBodyType }) => {
     return (
         <div className="flex sm:gap-3 gap-2">
 
-            {/* Avatar */}
+            
             <img
                 src={item.authorProfile}
                 className="bg-neutral-900 sm:w-10 sm:h-10 w-9 h-9 aspect-square rounded-full overflow-hidden object-cover"
                 alt={item.authorName}
             />
 
-            {/* Comment Content */}
+            
             <div>
                 <h1 className="text-xl font-medium">
                     {item.authorName}

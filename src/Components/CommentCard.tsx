@@ -27,10 +27,10 @@ const CommentCard = ({ comment }: { comment: CommentBodyType }) => {
     return (
         <div className="flex flex-col gap-2">
 
-            {/* Main comment */}
+           
             <CommentBody item={comment} />
 
-            {/* Replies */}
+           
             <div className="pl-12 sm:pl-14 flex flex-col gap-2">
                 {replies?.map((item) =>
                     <CommentBody key={item.commentId} item={item} />

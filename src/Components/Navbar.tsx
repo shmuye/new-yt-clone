@@ -89,7 +89,6 @@ const Navbar = ({
                     </form>
                 </div>
 
-                {/* Right placeholder */}
                 <div className="lg:block hidden"></div>
 
             </div>

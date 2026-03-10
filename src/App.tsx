@@ -16,20 +16,20 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      {/* Sidebar drawer (Tailwind) */}
+     
       <div
-        className={`fixed inset-0 z-[60] ${sidebarOpen ? "pointer-events-auto" : "pointer-events-none"}`}
+        className={`fixed inset-0 z-60 ${sidebarOpen ? "pointer-events-auto" : "pointer-events-none"}`}
         aria-hidden={!sidebarOpen}
       >
-        {/* Backdrop */}
+       
         <div
           className={`absolute inset-0 bg-black/60 transition-opacity duration-200 ${sidebarOpen ? "opacity-100" : "opacity-0"}`}
           onClick={() => setSidebarOpen(false)}
         />
 
-        {/* Panel */}
+      
         <div
-          className={`absolute left-0 top-0 h-full w-[85vw] max-w-[340px] bg-[#0c0c0c] shadow-2xl transition-transform duration-200 ${
+          className={`absolute left-0 top-0 h-full w-[85vw] max-w-85 bg-[#0c0c0c] shadow-2xl transition-transform duration-200 ${
             sidebarOpen ? "translate-x-0" : "-translate-x-full"
           }`}
           role="dialog"

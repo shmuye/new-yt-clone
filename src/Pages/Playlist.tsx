@@ -21,12 +21,12 @@ const Playlist = () => {
     return (
         <div className="relative">
 
-            {/* modal */}
+           
             {
                 showDesc && playListInfo?.description &&
-                <div className="z-[10] fixed inset-0 bg-black/60 flex items-start justify-center pt-16 px-4">
+                <div className="z-10 fixed inset-0 bg-black/60 flex items-start justify-center pt-16 px-4">
 
-                    <div className="relative flex flex-col gap-2 items-end w-full max-w-[640px] max-h-[80vh] bg-neutral-800 rounded-xl p-5 sm:p-8 overflow-y-auto">
+                    <div className="relative flex flex-col gap-2 items-end w-full max-w-160 max-h-[80vh] bg-neutral-800 rounded-xl p-5 sm:p-8 overflow-y-auto">
                         <div>
                             <AiOutlineClose
                                 onClick={() => setShowDesc(false)}
@@ -39,15 +39,15 @@ const Playlist = () => {
 
             <div className='w-[90%] mx-auto sm:mt-8 mt-4'>
                 <div className="bg-neutral-900 md:p-5 p-3 rounded-xl flex flex-col md:flex-row gap-4">
-                    {/* image */}
-                    <div className="md:w-[360px] md:shrink-0">
+                  
+                    <div className="md:w-90 md:shrink-0">
                         <img
                             src={playListInfo?.thumbnail}
-                            className="w-full aspect-[16/9] object-cover bg-neutral-900 rounded-md"
+                            className="w-full aspect-video-[16/9] object-cover bg-neutral-900 rounded-md"
                             alt=""
                         />
                     </div>
-                    {/*details */}
+                    
                     <div className="min-w-0 flex flex-col gap-2">
                         <h1 className='md:text-4xl sm:text-3xl text-2xl font-semibold'>{playListInfo?.title}</h1>
 

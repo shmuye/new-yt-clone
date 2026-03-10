@@ -25,11 +25,11 @@ const Channel = () => {
 
     return (
         <div className="relative mb-12">
-            {/* modal */}
+            
             {showDesc && channelInfo?.description &&
-                <div className="z-[10] fixed inset-0 bg-black/60 flex items-start justify-center pt-16 px-4">
+                <div className="z-10 fixed inset-0 bg-black/60 flex items-start justify-center pt-16 px-4">
 
-                    <div className="relative flex flex-col gap-2 items-end w-full max-w-[640px] max-h-[80vh] bg-neutral-800 rounded-xl p-5 sm:p-8 overflow-y-auto">
+                    <div className="relative flex flex-col gap-2 items-end w-full max-w-160 max-h-[80vh] bg-neutral-800 rounded-xl p-5 sm:p-8 overflow-y-auto">
                         <div>
                             <AiOutlineClose
                                 onClick={() => setShowDesc(false)}
@@ -49,15 +49,15 @@ const Channel = () => {
             >
                 <div className='w-[95%] mx-auto md:mt-8 mt-6'>
                     <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
-                        {/* image */}
+                       
                         <div className="sm:shrink-0 flex justify-center sm:justify-start">
                             <img
                                 src={channelInfo?.thumbnail}
-                                className="md:w-52 sm:w-40 w-32 aspect-[1/1] object-cover rounded-full"
+                                className="md:w-52 sm:w-40 w-32 aspect-video-[1/1] object-cover rounded-full"
                                 alt=""
                             />
                         </div>
-                        {/*details */}
+                        
                         <div className="min-w-0">
                             <h1 className='md:text-4xl sm:text-3xl text-2xl font-semibold'>{channelInfo?.title}</h1>
                             <div className="flex flex-wrap gap-x-4 gap-y-1 sm:text-lg text-base text-neutral-400 mt-2">
@@ -67,7 +67,7 @@ const Channel = () => {
                             </div>
                             {channelInfo?.description &&
                                 <div className="">
-                                    <p className='max-w-[640px] line-clamp-3 text-neutral-400 whitespace-pre-line'>{channelInfo?.description}</p>
+                                    <p className='max-w-160 line-clamp-3 text-neutral-400 whitespace-pre-line'>{channelInfo?.description}</p>
                                     <button
                                         onClick={() => setShowDesc(true)}
                                         className='font-semibold'>more</button>

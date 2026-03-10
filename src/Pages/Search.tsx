@@ -24,7 +24,6 @@ const Search = ({ setSearch }: { setSearch: (q: string) => void }) => {
 
         const VideosData = await getActvitiesVideos(videoIds)
         const videosArray = await fetchVideosWithChannels(VideosData.items)
-        // console.log("videosArray", videosArray)
         setSearchList(videosArray)
 
     }
